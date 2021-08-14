@@ -1,0 +1,24 @@
+{
+  "name": "@mattplays/csgo-api",
+  "version": "0.0.1",
+  "description": "This package is a wrapper for the unofficial CSGOAPI",
+  "main": "CSGOAPI.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MattPlays/CSGOAPI.git"
+  },
+  "keywords": [
+    "CSGO",
+    "API",
+    "GameAPICenter"
+  ],
+  "author": "MattPlays (https://github.com/MattPlays/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MattPlays/CSGOAPI/issues"
+  },
+  "homepage": "https://github.com/MattPlays/CSGOAPI#readme"
+}
