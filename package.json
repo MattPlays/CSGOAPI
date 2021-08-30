@@ -1,6 +1,6 @@
 {
   "name": "@mattplays/csgo-api",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "This package is a wrapper for the unofficial CSGOAPI",
   "main": "src/index.js",
   "types": "types/index.d.ts",
