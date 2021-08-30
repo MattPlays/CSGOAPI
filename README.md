@@ -26,8 +26,8 @@ This package is a wrapper for the unofficial CSGOAPI
 **This is an Unoffical API** [Unoffical Docs](https://tracker.gg/developers/docs/titles/csgo)
 ### Usage <a id="csgo-usage">
 ```javascript
-const GameAPICenter = require("gameapicenter");
-const CSGOAPI = new GameAPICenter.CSGOAPI("DUMMYAUTHKEY");
+const {CSGOAPI} = require("@mattplays/csgo-api");
+const API = new CSGOAPI("DUMYMAPIKEY");
 ```
 ### Functions <a id="csgo-functions">
 #### GetPlayerStats <a id="csgo-getplayerstats">
@@ -40,8 +40,8 @@ Retrieve career stats for an CSGO player.
 The GetPlayerStats function returns a `Promise<Profile>` type
 ##### Usage <a id="csgo-getplayerstats-usage">
 ```javascript
-const CSGOAPI = new GameAPICenter.CSGOAPI("DUMMYAPIKEY");
-CSGOAPI.GetPlayerStats("DUMMY-PLAYER-IDENTIFIER").then((data) => {
+const API = new CSGOAPI("DUMYMAPIKEY");
+API.GetPlayerStats("DUMMY-PLAYER-IDENTIFIER").then((data) => {
 // Your Code Here :D
 });
 ```
@@ -56,8 +56,8 @@ Retrieve a portion of the stats for a CSGO player. We divide stats into logical 
 The GetStatSegment function returns a `Promise<SegmentResponse>` type
 ##### Usage <a id="csgo-getstatsegment-usage">
 ```javascript
-const CSGOAPI = new GameAPICenter.CSGOAPI("DUMMYAUTHKEY");
-CSGOAPI.GetStatSegment("DUMMY-PLAYER-IDENTIFIER", "map").then((data) => {
+const API = new CSGOAPI("DUMYMAPIKEY");
+API.GetStatSegment("DUMMY-PLAYER-IDENTIFIER", "map").then((data) => {
 // Your Code Here :D
 });
 ```
@@ -71,8 +71,8 @@ Allows you to perform a search for a CSGO player using a unique identifier (a St
 The SearchForPlayer function returns a `Promise<SearchResult[]>` type
 ##### Usage <a id="csgo-searchforplayer-output">
 ```javascript
-const CSGOAPI = new GameAPICenter.CSGOAPI("DUMMYAUTHKEY");
-CSGOAPI.SearchForPlayer("DUMMY-STEAM-ID").then((data) => {
+const API = new CSGOAPI("DUMYMAPIKEY");
+API.SearchForPlayer("DUMMY-STEAM-ID").then((data) => {
 // Your Code Here :D
 });
 ```
@@ -80,8 +80,8 @@ CSGOAPI.SearchForPlayer("DUMMY-STEAM-ID").then((data) => {
 #### Profile <a id="csgo-returntypes-profile">
 ##### Stat <a id="csgo-returntypes-profile-stat">
 ```typescript
-export type Stat = {
-    rank: string | null,
+export interface Stat {
+    rank: string,
     percentile: number,
     displayName: string,
     displayCategory: string,
@@ -93,78 +93,49 @@ export type Stat = {
 }
 ```
 ```typescript
-export type Profile = {
-    data: {
-        platformInfo: {
-            platformSlug: string,
-            platformUserId: string,
-            platformUserHandle: string,
-            platformUserIdentifier: string,
-            avatarUrl: string,
-            additionalParameters: string[] | null,
-        },
-        userInfo: {
-            userId: number | null,
-            isPremium: boolean,
-            isVerified: boolean,
-            isInfluencer: boolean,
-            isPartner: boolean,
-            countryCode: string | null,
-            customAvatarUrl: string | null,
-            customHeroUrl: string | null,
-            socialAccounts: string[] | null,
-            oageviews: null,
-            isSuspicious: boolean | null,
-        },
-        metadata: {},
-        segments: [
-            {
-            type: string, 
-            attributes: {}, 
-            metadata: {
-                name: string
-            }, 
-            expiryDate: string, 
-            stats: {
-                timePlayed: Stat,
-                score: Stat,
-                Kills: Stat,
-                deaths: Stat,
-                kd: Stat,
-                damage: Stat,
-                headshots: Stat,
-                dominations: Stat,
-                shotsFired: Stat,
-                shotsHit: Stat,
-                shotsAccuracy: Stat,
-                snipersKilled: Stat,
-                dominationOverkills: Stat,
-                dominationRevenges: Stat,
-                BombsPlanted: Stat,
-                BombsDefused: Stat,
-                moneyEarned: Stat,
-                hostagesRescued: Stat,
-                mvp: Stat,
-                wins: Stat,
-                ties: Stat,
-                matchesPlayed: Stat,
-                losses: Stat,
-                roundsPlayed: Stat,
-                roundsWon: Stat,
-                wlPercentage: Stat,
-                headshotPct: Stat,
-            }},
-        ],
-        availableSegments: [],
-        expiryDate: string
-    }
+interface platformInfo {
+    platformSlug: string,
+    platformUserId: string,
+    platformUserHandle: string,
+    platformUserIdentifier: string,
+    avatarUrl: string,
+    additionalParameters: string[],
+}
+interface userInfo {
+    userId: number,
+    isPremium: boolean,
+    isVerified: boolean,
+    isInfluencer: boolean,
+    isPartner: boolean,
+    countryCode: string,
+    customAvatarUrl: string,
+    customHeroUrl: string,
+    socialAccounts: string[],
+    pageviews: number,
+    isSuspicious: boolean,
+}
+export interface Profile {
+    platformInfo: platformInfo,
+    userInfo: userInfo,
+    metadata: object | null,
+    segments: {
+        type: string, 
+        attributes: {}, 
+        metadata: {
+            name: string
+        }, 
+        expiryDate: string, 
+        stats: Stat[];
+    }[],
+    availableSegments: any,
+    expiryDate: string,
 }
 ```
 #### SegmentResponse <a id="csgo-returntypes-segmentresponse">
 ##### Stat <a id="csgo-returntypes-segmentresponse-stat">
 ```typescript
-export type Stat = {
-    rank: string | null,
+export interface Stat {
+    rank: string,
     percentile: number,
     displayName: string,
     displayCategory: string,
@@ -176,17 +147,17 @@ export type Stat = {
 }
 ```
 ```typescript
-export type SegmentResponse = {
+export interface SegmentResponse {
     type: string,
     attributes: {
         key: string,
     },
     metadata: {
         name: string,
-        imageUrl: string,
+        imageUrl: string;
         category: {
             value: string, 
-            displayValue: string,
+            displayValue: string
         },
     },
     expiryDate: string,
@@ -200,18 +171,14 @@ export type SegmentResponse = {
 ```
 #### SearchResult <a id="csgo-returntypes-searchresult">
 ```typescript
-export type SearchResult = {
-    data: [
-        {
-            platformId: number,
-            platformSlug: string,
-            platformUserIdentifier: string,
-            platformUserId: string,
-            platformUserHandle: string,
-            avatarUrl: string,
-            status: string | null,
-            additionalParameters: string[] | null,
-        }
-    ]
+export interface SearchResult {
+    platformId: number,
+    platformSlug: string,
+    platformUserIdentifier: string,
+    platformUserId: string,
+    platformUserHandle: string,
+    avatarUrl: string,
+    status: string,
+    additionalParameters: string[],
 }
 ```
