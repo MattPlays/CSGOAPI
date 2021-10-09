@@ -1,0 +1,162 @@
+<!DOCTYPE html><html class="default no-js"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>@mattplays/csgo-api</title><meta name="description" content="Documentation for @mattplays/csgo-api"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="assets/style.css"/><link rel="stylesheet" href="assets/highlight.css"/><script async src="assets/search.js" id="search-script"></script></head><body><header><div class="tsd-page-toolbar"><div class="container"><div class="table-wrap"><div class="table-cell" id="tsd-search" data-base="."><div class="field"><label for="tsd-search-field" class="tsd-widget search no-caption">Search</label><input type="text" id="tsd-search-field"/></div><ul class="results"><li class="state loading">Preparing search index...</li><li class="state failure">The search index is not available</li></ul><a href="index.html" class="title">@mattplays/csgo-api</a></div><div class="table-cell" id="tsd-widgets"><div id="tsd-filter"><a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a><div class="tsd-filter-group"><div class="tsd-select" id="tsd-filter-visibility"><span class="tsd-select-label">All</span><ul class="tsd-select-list"><li data-value="public">Public</li><li data-value="protected">Public/Protected</li><li data-value="private" class="selected">All</li></ul></div> <input type="checkbox" id="tsd-filter-inherited" checked/><label class="tsd-widget" for="tsd-filter-inherited">Inherited</label><input type="checkbox" id="tsd-filter-externals" checked/><label class="tsd-widget" for="tsd-filter-externals">Externals</label></div></div><a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a></div></div></div></div><div class="tsd-page-title"><div class="container"><h1>@mattplays/csgo-api</h1></div></div></header><div class="container container-main"><div class="row"><div class="col-8 col-content"><div class="tsd-panel tsd-typography">
+<a href="#csgoapi" id="csgoapi" style="color: inherit; text-decoration: none;">
+  <h1>CSGOAPI</h1>
+</a>
+<p>This package is a wrapper for the unofficial CSGOAPI</p>
+<ol>
+<li><a href="#csgo">Counter Strike Global Offensive</a><ol>
+<li><a href="#csgo-usage">Usage</a></li>
+<li><a href="#csgo-functions">Functions</a><ol>
+<li><a href="#csgo-getplayerstats">GetPlayerStats</a><ol>
+<li><a href="#csgo-getplayerstats-input">Input</a></li>
+<li><a href="#csgo-getplayerstats-output">Output</a></li>
+<li><a href="#csgo-getplayerstats-usage">Usage</a></li>
+</ol>
+</li>
+<li><a href="#csgo-getstatsegment">GetStatSegment</a><ol>
+<li><a href="#csgo-getstatsegment-inputs">Inputs</a></li>
+<li><a href="#csgo-getstatsegment-output">Output</a></li>
+<li><a href="#csgo-getstatsegment-usage">Usage</a></li>
+</ol>
+</li>
+<li><a href="#csgo-searchforplayer">SearchForPlayer</a><ol>
+<li><a href="#csgo-searchforplayer-input">Input</a></li>
+<li><a href="#csgo-searchforplayer-output">Output</a></li>
+<li><a href="#csgo-searchforplayer-usage">Usage</a>
+<a href="#counter-strike-global-offensive-" id="counter-strike-global-offensive-" style="color: inherit; text-decoration: none;">
+  <h2>Counter Strike Global Offensive <a id="csgo"></h2>
+</a>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<p><strong>This is an Unoffical API</strong> <a href="https://tracker.gg/developers/docs/titles/csgo">Unoffical Docs</a></p>
+
+<a href="#usage-" id="usage-" style="color: inherit; text-decoration: none;">
+  <h3>Usage <a id="csgo-usage"></h3>
+</a>
+<pre><code class="language-javascript"><span class="hl-0">const</span><span class="hl-1"> {</span><span class="hl-2">CSGOAPI</span><span class="hl-1">} = </span><span class="hl-3">require</span><span class="hl-1">(</span><span class="hl-4">&quot;@mattplays/csgo-api&quot;</span><span class="hl-1">);</span><br/><span class="hl-0">const</span><span class="hl-1"> </span><span class="hl-2">API</span><span class="hl-1"> = </span><span class="hl-0">new</span><span class="hl-1"> </span><span class="hl-3">CSGOAPI</span><span class="hl-1">(</span><span class="hl-4">&quot;DUMYMAPIKEY&quot;</span><span class="hl-1">);</span>
+</code></pre>
+
+<a href="#functions-" id="functions-" style="color: inherit; text-decoration: none;">
+  <h3>Functions <a id="csgo-functions"></h3>
+</a>
+
+<a href="#getplayerstats-" id="getplayerstats-" style="color: inherit; text-decoration: none;">
+  <h4>GetPlayerStats <a id="csgo-getplayerstats"></h4>
+</a>
+<p>Retrieve career stats for an CSGO player.</p>
+
+<a href="#input-" id="input-" style="color: inherit; text-decoration: none;">
+  <h5>Input <a id="csgo-getplayerstats-input"></h5>
+</a>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>playerIdentifier</td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The user&#39;s handle on Steam, ie. a Steam ID, Steam Community URL, Steam Vanity Username, etc.</td>
+</tr>
+</tbody></table>
+
+<a href="#output-" id="output-" style="color: inherit; text-decoration: none;">
+  <h5>Output <a  id="csgo-getplayerstats-output"></h5>
+</a>
+<p>The GetPlayerStats function returns a <code>Promise&lt;Profile&gt;</code> type</p>
+
+<a href="#usage--1" id="usage--1" style="color: inherit; text-decoration: none;">
+  <h5>Usage <a id="csgo-getplayerstats-usage"></h5>
+</a>
+<pre><code class="language-javascript"><span class="hl-0">const</span><span class="hl-1"> </span><span class="hl-2">API</span><span class="hl-1"> = </span><span class="hl-0">new</span><span class="hl-1"> </span><span class="hl-3">CSGOAPI</span><span class="hl-1">(</span><span class="hl-4">&quot;DUMYMAPIKEY&quot;</span><span class="hl-1">);</span><br/><span class="hl-2">API</span><span class="hl-1">.</span><span class="hl-3">GetPlayerStats</span><span class="hl-1">(</span><span class="hl-4">&quot;DUMMY-PLAYER-IDENTIFIER&quot;</span><span class="hl-1">).</span><span class="hl-3">then</span><span class="hl-1">((</span><span class="hl-5">data</span><span class="hl-1">) </span><span class="hl-0">=&gt;</span><span class="hl-1"> {</span><br/><span class="hl-6">// Your Code Here :D</span><br/><span class="hl-1">});</span>
+</code></pre>
+
+<a href="#getstatsegment-" id="getstatsegment-" style="color: inherit; text-decoration: none;">
+  <h4>GetStatSegment <a id="csgo-getstatsegment"></h4>
+</a>
+<p>Retrieve a portion of the stats for a CSGO player. We divide stats into logical segments, such as playlists, seasons, heroes, etc. (whatever happens to be useful for a specific game.)</p>
+
+<a href="#inputs-" id="inputs-" style="color: inherit; text-decoration: none;">
+  <h5>Inputs <a id="csgo-getstatsegment-inputs"></h5>
+</a>
+<table>
+<thead>
+<tr>
+<th>Input</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>playerIdentifier</td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The user&#39;s handle on Steam, ie. a Steam ID, Steam Community URL, Steam Vanity Username, etc.</td>
+</tr>
+<tr>
+<td>segmentType</td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The type of segment you want to return, ie. &#39;map&#39;, or &#39;weapon&#39;.</td>
+</tr>
+</tbody></table>
+
+<a href="#output--1" id="output--1" style="color: inherit; text-decoration: none;">
+  <h5>Output <a id="csgo-getstatsegment-output"></h5>
+</a>
+<p>The GetStatSegment function returns a <code>Promise&lt;SegmentResponse&gt;</code> type</p>
+
+<a href="#usage--2" id="usage--2" style="color: inherit; text-decoration: none;">
+  <h5>Usage <a id="csgo-getstatsegment-usage"></h5>
+</a>
+<pre><code class="language-javascript"><span class="hl-0">const</span><span class="hl-1"> </span><span class="hl-2">API</span><span class="hl-1"> = </span><span class="hl-0">new</span><span class="hl-1"> </span><span class="hl-3">CSGOAPI</span><span class="hl-1">(</span><span class="hl-4">&quot;DUMYMAPIKEY&quot;</span><span class="hl-1">);</span><br/><span class="hl-2">API</span><span class="hl-1">.</span><span class="hl-3">GetStatSegment</span><span class="hl-1">(</span><span class="hl-4">&quot;DUMMY-PLAYER-IDENTIFIER&quot;</span><span class="hl-1">, </span><span class="hl-4">&quot;map&quot;</span><span class="hl-1">).</span><span class="hl-3">then</span><span class="hl-1">((</span><span class="hl-5">data</span><span class="hl-1">) </span><span class="hl-0">=&gt;</span><span class="hl-1"> {</span><br/><span class="hl-6">// Your Code Here :D</span><br/><span class="hl-1">});</span>
+</code></pre>
+
+<a href="#searchforplayer-" id="searchforplayer-" style="color: inherit; text-decoration: none;">
+  <h4>SearchForPlayer <a id="csgo-searchforplayer"></h4>
+</a>
+<p>Allows you to perform a search for a CSGO player using a unique identifier (a Steam ID, Steam Community URL, Steam Vanity Username, etc.) The result set is not guaranteed to be an exhaustive list of players that match the search.</p>
+
+<a href="#input--1" id="input--1" style="color: inherit; text-decoration: none;">
+  <h5>Input <a id="csgo-searchforplayer-input"></h5>
+</a>
+<table>
+<thead>
+<tr>
+<th>Input</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>query</td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The user&#39;s handle on Steam, ie. a Steam ID, Steam Community URL, Steam Vanity Username, etc.</td>
+</tr>
+</tbody></table>
+
+<a href="#output--2" id="output--2" style="color: inherit; text-decoration: none;">
+  <h5>Output <a id="csgo-searchforplayer-output"></h5>
+</a>
+<p>The SearchForPlayer function returns a <code>Promise&lt;SearchResult[]&gt;</code> type</p>
+
+<a href="#usage--3" id="usage--3" style="color: inherit; text-decoration: none;">
+  <h5>Usage <a id="csgo-searchforplayer-output"></h5>
+</a>
+<pre><code class="language-javascript"><span class="hl-0">const</span><span class="hl-1"> </span><span class="hl-2">API</span><span class="hl-1"> = </span><span class="hl-0">new</span><span class="hl-1"> </span><span class="hl-3">CSGOAPI</span><span class="hl-1">(</span><span class="hl-4">&quot;DUMYMAPIKEY&quot;</span><span class="hl-1">);</span><br/><span class="hl-2">API</span><span class="hl-1">.</span><span class="hl-3">SearchForPlayer</span><span class="hl-1">(</span><span class="hl-4">&quot;DUMMY-STEAM-ID&quot;</span><span class="hl-1">).</span><span class="hl-3">then</span><span class="hl-1">((</span><span class="hl-5">data</span><span class="hl-1">) </span><span class="hl-0">=&gt;</span><span class="hl-1"> {</span><br/><span class="hl-6">// Your Code Here :D</span><br/><span class="hl-1">});</span>
+</code></pre>
+</div></div><div class="col-4 col-menu menu-sticky-wrap menu-highlight"><nav class="tsd-navigation primary"><ul><li class="current"><a href="modules.html">Exports</a></li></ul></nav><nav class="tsd-navigation secondary menu-sticky"><ul><li class="tsd-kind-class"><a href="classes/CSGOAPI.html" class="tsd-kind-icon">CSGOAPI</a></li><li class="tsd-kind-interface"><a href="interfaces/Profile.html" class="tsd-kind-icon">Profile</a></li><li class="tsd-kind-interface"><a href="interfaces/SearchResult.html" class="tsd-kind-icon">Search<wbr/>Result</a></li><li class="tsd-kind-interface"><a href="interfaces/SegmentResponse.html" class="tsd-kind-icon">Segment<wbr/>Response</a></li><li class="tsd-kind-interface"><a href="interfaces/Stat.html" class="tsd-kind-icon">Stat</a></li><li class="tsd-kind-interface"><a href="interfaces/platformInfo.html" class="tsd-kind-icon">platform<wbr/>Info</a></li><li class="tsd-kind-interface"><a href="interfaces/userInfo.html" class="tsd-kind-icon">user<wbr/>Info</a></li></ul></nav></div></div></div><footer class="with-border-bottom"><div class="container"><h2>Legend</h2><div class="tsd-legend-group"><ul class="tsd-legend"><li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li><li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li></ul><ul class="tsd-legend"><li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li></ul></div><h2>Settings</h2><p>Theme <select id="theme"><option value="os">OS</option><option value="light">Light</option><option value="dark">Dark</option></select></p></div></footer><div class="container tsd-generator"><p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p></div><div class="overlay"></div><script src="assets/main.js"></script></body></html>
